@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+}
+
+nav {
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-left {
+  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-card {
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.25);
+}
+
+.title-item {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.title-menu {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.underline-title {
+  width: 18%;
+  height: 6px;
+  margin-left: 3px;
+}
+
+.not-allowed {
+  cursor: not-allowed;
+}
+
+.underline {
+  height: 5px;
+}
+
+.menu-button:hover {
+  -webkit-box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 6px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.box {
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 200px;
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.box:hover {
+  -webkit-box-shadow: 0px 6px 4px 0px rgba(191, 228, 89, 0.75);
+  -moz-box-shadow: 0px 6px 4px 0px rgba(191, 228, 89, 0.75);
+  box-shadow: 4px 6px 4px 0px rgba(191, 228, 89, 0.75);
+}
+
+.sub-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.total {
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.rupiah {
+  font-weight: 700;
+  font-size: 36px;
+}
