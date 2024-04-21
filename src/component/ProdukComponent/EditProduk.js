@@ -16,14 +16,14 @@ const EditProduk = () => {
 
   // gql getpprodukbyid dan updateproduk
   const { data } = useGetDataProductById(id);
-  const { updateProduk, loadingUpdateProduk } = useUpdateDataProduct();
+  const { updateProduk } = useUpdateDataProduct();
 
   const [state, setState] = useState();
 
   // set data ke state
   useEffect(() => {
     if (data) {
-      setState(data?.dikasir_Produk_by_pk || {});
+      setState(data?.produk_by_pk || {});
     }
   }, [data]);
 
@@ -63,7 +63,7 @@ const EditProduk = () => {
   // handel Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (state.namaProduk === "" || state.harga === "" || state.stok === "") {
+    if (state.nama_produk === "" || state.harga === "" || state.stok === "") {
       swal("Perhatian!", "Beberapa Form Belum Terisi!", "warning", {
         button: true,
       });
@@ -71,14 +71,14 @@ const EditProduk = () => {
       let newData;
       if (url === "") {
         newData = {
-          namaProduk: state.namaProduk,
+          nama_produk: state.nama_produk,
           harga: state.harga,
           stok: state.stok,
           gambar: state.gambar,
         };
       } else {
         newData = {
-          namaProduk: state.namaProduk,
+          nama_produk: state.nama_produk,
           harga: state.harga,
           stok: state.stok,
           gambar: url,
@@ -110,15 +110,15 @@ const EditProduk = () => {
           <div className="mb-3">
             <input type="hidden" value={state?.id || ""} />
             <input type="hidden" value={state?.gambar || ""} />
-            <label htmlFor="namaProduk" className="form-label fw-bold fs-5">
+            <label htmlFor="nama_produk" className="form-label fw-bold fs-5">
               Nama Produk
             </label>
             <input
               type="text"
               className="form-control"
-              id="namaProduk"
-              name="namaProduk"
-              value={state?.namaProduk || ""}
+              id="nama_produk"
+              name="nama_produk"
+              value={state?.nama_produk || ""}
               onChange={handleChange}
             />
           </div>

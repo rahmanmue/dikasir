@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const Index = ({ data }) => {
   // props data dari komponen list produk
-  const { namaProduk, stok, harga, gambar, id } = data;
+  const { nama_produk, stok, harga, gambar, id } = data;
 
   // store redux
   const dispatch = useDispatch();
@@ -21,13 +21,14 @@ const Index = ({ data }) => {
   const [newList, setNewList] = useState();
 
   // fungsi addData untuk update setiap list baru
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const addData = (kodeNota) => {
     const list = {
       id_produk: id,
-      namaProduk: namaProduk,
+      nama_produk: nama_produk,
       harga: harga,
       quantity: 1,
-      kodeNota: kodeNota,
+      kode_nota: kodeNota,
       stok: stok,
     };
     setNewList(list);
@@ -36,7 +37,7 @@ const Index = ({ data }) => {
   // update perubahan uuid ke addData ketika ada perubahan dari listpayment
   useEffect(() => {
     addData(uuid);
-  }, [listPayment]);
+  }, [addData, listPayment, uuid]);
 
   // handleClick untuk menambah list item ke store redux
   const handleClickAddListItem = () => {
@@ -48,7 +49,7 @@ const Index = ({ data }) => {
       <Card className="rounded-5 shadow-card">
         <Card.Img variant="top" src={gambar} />
         <Card.Body>
-          <div className="text-capitalize fw-bold">{namaProduk}</div>
+          <div className="text-capitalize fw-bold">{nama_produk}</div>
           <div className="my-2"> Stok : {stok}</div>
           <div className="d-flex justify-content-between align-items-center">
             <div className="text-capitalize my-2 fw-bolder">

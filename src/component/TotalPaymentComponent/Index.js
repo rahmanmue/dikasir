@@ -12,8 +12,10 @@ import swal from "sweetalert";
 
 const Index = () => {
   // graphql hooks
-  const { insertNota, loadingInsertNota } = useInsertDataNota();
+  const { insertNota } = useInsertDataNota();
+  // eslint-disable-next-line no-unused-vars
   const { insertTransaksi, loadingInsertTransaksi } = useInsertDataTransaksi();
+  // eslint-disable-next-line no-unused-vars
   const { upsertProduk, loadingUpsertProduk } = useUpsertDataProduct();
 
   // store redux
@@ -36,13 +38,13 @@ const Index = () => {
 
   // tambah data pembayaran
   const addNewDataPayment = async () => {
-    let kodeNota;
-    await (listItem.length > 0 ? (kodeNota = listItem[0].kodeNota) : "");
+    let kode_nota;
+    await (listItem.length > 0 ? (kode_nota = listItem[0].kode_nota) : "");
     const newData = {
       total: totalBayar,
       bayar: bayar,
       kembali: kembali,
-      kodeNota: kodeNota,
+      kode_nota: kode_nota,
       tanggal: getDate(),
     };
     dispatch(newPayment(newData));
@@ -73,11 +75,11 @@ const Index = () => {
 
   // konfirmasi pembayaran
   const handleClickConfirmPayment = () => {
-    const { harga, id_produk, kodeNota, namaProduk, quantity, stok } =
+    const { harga, id_produk, kode_nota, nama_produk, quantity } =
       listItem[0];
 
-    console.log("listItem : ", id_produk);
-    console.log("listPayment : ", listPayment[0]);
+    // console.log("listItem : ", id_produk);
+    // console.log("listPayment : ", listPayment[0]);
     insertTransaksi({
       variables: {
         object: listPayment[0],
@@ -88,11 +90,11 @@ const Index = () => {
       variables: {
         objects: [
           {
-            namaProduk,
+            nama_produk,
             harga,
             quantity,
             id_produk,
-            kodeNota,
+            kode_nota,
           },
         ],
       },
@@ -101,13 +103,13 @@ const Index = () => {
     const upsertData = listItem.map((item) => {
       return {
         id: item.id_produk,
-        namaProduk: item.namaProduk,
+        nama_produk: item.nama_produk,
         harga: item.harga,
         stok: item.stok - item.quantity,
         gambar: " ",
       };
     });
-    console.log("upsertData : ", upsertData);
+    // console.log("upsertData : ", upsertData);
     upsertProduk({
       variables: {
         objects: upsertData,

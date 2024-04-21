@@ -29,12 +29,12 @@ const Index = () => {
   const uuid = uuidv4();
   useEffect(() => {
     dispatch(addUid(uuid));
-  }, [listPayment]);
+  }, [dispatch, listPayment, uuid]);
 
   // setProduct dari data graphql
   useEffect(() => {
     if (data) {
-      setProduct(data?.dikasir_Produk || []);
+      setProduct(data?.produk || []);
     }
   }, [data]);
 

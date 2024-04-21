@@ -11,7 +11,6 @@ import {
   useSubscribeJumlahProduk,
   useSubscribeJumlahStok,
   useSubscribeJumlahTransaksi,
-  useSubscribePengeluaran,
   useSubscribePemasukan,
   useSubscribeDataProduct,
 } from "../../hooks";
@@ -36,11 +35,11 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (jP || jS || jTs || jPl || jPm) {
-      setProduk(jP?.dikasir_Produk_aggregate || []);
-      setStok(jS?.dikasir_Produk_aggregate || []);
-      setTransaksi(jTs?.dikasir_Transaksi_aggregate || []);
-      setPengeluaran(jPl?.dikasir_Produk || []);
-      setPembayaran(jPm?.dikasir_Transaksi_aggregate || []);
+      setProduk(jP?.produk_aggregate || []);
+      setStok(jS?.produk_aggregate || []);
+      setTransaksi(jTs?.transaksi_aggregate || []);
+      setPengeluaran(jPl?.produk || []);
+      setPembayaran(jPm?.transaksi_aggregate || []);
     }
   }, [jP, jS, jTs, jPl, jPm]);
 

@@ -28,7 +28,7 @@ const TabelRincian = ({ data, loading, error }) => {
           <Col md={6} className="mt-5">
             <div className="border-bottom py-2">
               <span className="fw-bold ">Kode Transaksi : </span>
-              {newData?.kodeNota}
+              {newData?.kode_nota}
             </div>
 
             <div className="py-2">
@@ -53,7 +53,7 @@ const TabelRincian = ({ data, loading, error }) => {
                   {newData?.rincian.map((item, index) => (
                     <tr key={item.id}>
                       <td>{index + 1}</td>
-                      <td>{item.namaProduk}</td>
+                      <td>{item.nama_produk}</td>
                       <td>{item.quantity}</td>
                       <td>{toRupiah(item.harga)}</td>
                       <td>{toRupiah(item.quantity * item.harga)}</td>

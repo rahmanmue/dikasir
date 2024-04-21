@@ -128,7 +128,7 @@ const TableProduk = ({ data, loading, error }) => {
                             width={100}
                           />
                         </td>
-                        <td>{item.namaProduk}</td>
+                        <td>{item.nama_produk}</td>
                         <td>{toRupiah(item.harga)}</td>
                         <td>{item.stok}</td>
                         <td>

@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { Button, Row, Col, Alert } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Row, Col } from "react-bootstrap";
 import { storage } from "../../firebase/firebase";
 import { useInsertDataProduct } from "../../hooks";
 import { useNavigate } from "react-router-dom";
@@ -11,10 +11,10 @@ const InputProduk = () => {
   const navigate = useNavigate();
 
   // gql hook insert data produk
-  const { insertProduk, loadingInsertProduk } = useInsertDataProduct();
+  const { insertProduk } = useInsertDataProduct();
 
   // state input
-  const [namaProduk, setNamaProduk] = useState("");
+  const [nama_produk, setNamaProduk] = useState("");
   const [harga, setHarga] = useState();
   const [stok, setStok] = useState();
 
@@ -55,7 +55,7 @@ const InputProduk = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (namaProduk === "" || harga === "" || stok === "") {
+    if (nama_produk === "" || harga === "" || stok === "") {
       // return alert("Beberapa Form Belum Terisi");
       swal("Perhatian!", "Beberapa Form Belum Terisi!", "warning", {
         button: true,
@@ -66,7 +66,7 @@ const InputProduk = () => {
       });
     } else {
       const data = {
-        namaProduk: namaProduk,
+        nama_produk: nama_produk,
         harga: harga,
         stok: stok,
         gambar: url,
@@ -95,15 +95,15 @@ const InputProduk = () => {
         <Col md={10} className="my-4">
           <form>
             <div className="mb-3">
-              <label htmlFor="namaProduk" className="form-label fw-bold fs-5">
+              <label htmlFor="nama_produk" className="form-label fw-bold fs-5">
                 Nama Produk
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="namaProduk"
-                name="namaProduk"
-                value={namaProduk || " "}
+                id="nama_produk"
+                name="nama_produk"
+                value={nama_produk || " "}
                 onChange={(e) => {
                   setNamaProduk(e.target.value);
                 }}

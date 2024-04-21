@@ -14,7 +14,7 @@ const TabelTransaksi = ({ data, loading, error }) => {
   const [tanggal, setTanggal] = useState("");
 
   // delete
-  const { deleteTransaksi, loadingDeleteTransaksi } = useDeleteDataTransaksi();
+  const { deleteTransaksi } = useDeleteDataTransaksi();
 
   // state filter untuk data produk
   const [dataFilter, setFilter] = useState([]);
@@ -107,7 +107,7 @@ const TabelTransaksi = ({ data, loading, error }) => {
                         <td>{toRupiah(item.bayar)}</td>
                         <td>{toRupiah(item.kembali)}</td>
                         <td className="d-flex justify-content-center">
-                          <Link to={`/transaksi/rincian/${item.kodeNota}`}>
+                          <Link to={`/transaksi/rincian/${item.kode_nota}`}>
                             <Button className="bg-transparent border-0 p-2 ">
                               <img src={infoIcon} alt="edit" width={25} />
                             </Button>

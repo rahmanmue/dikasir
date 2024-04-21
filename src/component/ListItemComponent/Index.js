@@ -10,7 +10,7 @@ import { toRupiah } from "../../utils/index";
 
 const Index = ({ item, index }) => {
   // props item dari komponen result
-  const { namaProduk, harga, id_produk } = item;
+  const { nama_produk, harga, id_produk } = item;
 
   // store redux
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Index = ({ item, index }) => {
     >
       <div className="d-flex flex-column justify-content-center">
         <div>
-          <strong className="title-item">{namaProduk}</strong>
+          <strong className="title-item">{nama_produk}</strong>
         </div>
         <div>
           <span>{toRupiah(harga)}</span>
