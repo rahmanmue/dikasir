@@ -1,14 +1,14 @@
 import { gql } from "@apollo/client";
 
 const insertDataNota = gql`
-  mutation MyMutation($objects: [dikasir_Nota_insert_input!] = {}) {
-    insert_dikasir_Nota(objects: $objects) {
+  mutation MyMutation($objects: [nota_insert_input!] = {}) {
+    insert_nota(objects: $objects) {
       affected_rows
       returning {
         id
         id_produk
-        kodeNota
-        namaProduk
+        kode_nota
+        nama_produk
         quantity
         harga
       }
@@ -17,13 +17,13 @@ const insertDataNota = gql`
 `;
 
 const insertDataTransaksi = gql`
-  mutation MyMutation($object: dikasir_Transaksi_insert_input = {}) {
-    insert_dikasir_Transaksi_one(object: $object) {
+  mutation MyMutation($object: transaksi_insert_input = {}) {
+    insert_transaksi_one(object: $object) {
       id
       total
       bayar
       kembali
-      kodeNota
+      kode_nota
       tanggal
     }
   }
@@ -31,10 +31,10 @@ const insertDataTransaksi = gql`
 
 // const upsertDataProduk = gql`
 //   mutation MyMutation(
-//     $objects: [dikasir_Produk_insert_input!] = {}
-//     $constraint: dikasir_Produk_constraint = Product_pkey
+//     $objects: [produk_insert_input!] = {}
+//     $constraint: produk_constraint = Product_pkey
 //   ) {
-//     insert_dikasir_Produk(
+//     insert_produk(
 //       objects: $objects
 //       on_conflict: { constraint: $constraint, update_columns: stok }
 //     ) {
@@ -44,10 +44,10 @@ const insertDataTransaksi = gql`
 // `;
 
 const upsertDataProduk = gql`
-  mutation MyMutation($objects: [dikasir_Produk_insert_input!] = {}) {
-    insert_dikasir_Produk(
+  mutation MyMutation($objects: [produk_insert_input!] = {}) {
+    insert_produk(
       objects: $objects
-      on_conflict: { constraint: Produk_pkey, update_columns: stok }
+      on_conflict: { constraint: produk_pkey, update_columns: stok }
     ) {
       affected_rows
     }
@@ -55,10 +55,10 @@ const upsertDataProduk = gql`
 `;
 
 const insertDataProduk = gql`
-  mutation MyMutation($object: dikasir_Produk_insert_input = {}) {
-    insert_dikasir_Produk_one(object: $object) {
+  mutation MyMutation($object: produk_insert_input = {}) {
+    insert_produk_one(object: $object) {
       id
-      namaProduk
+      nama_produk
       harga
       stok
       gambar
@@ -68,7 +68,7 @@ const insertDataProduk = gql`
 
 const deleteDataProduk = gql`
   mutation MyMutation($_eq: uuid = "") {
-    delete_dikasir_Produk(where: { id: { _eq: $_eq } }) {
+    delete_produk(where: { id: { _eq: $_eq } }) {
       affected_rows
     }
   }
@@ -76,17 +76,17 @@ const deleteDataProduk = gql`
 
 const deleteDataTransaksi = gql`
   mutation MyMutation($_eq: uuid = "") {
-    delete_dikasir_Transaksi(where: { id: { _eq: $_eq } }) {
+    delete_transaksi(where: { id: { _eq: $_eq } }) {
       affected_rows
     }
   }
 `;
 
 const updateDataProduk = gql`
-  mutation MyMutation($id: uuid = "", $_set: dikasir_Produk_set_input = {}) {
-    update_dikasir_Produk_by_pk(pk_columns: { id: $id }, _set: $_set) {
+  mutation MyMutation($id: uuid = "", $_set: produk_set_input = {}) {
+    update_produk_by_pk(pk_columns: { id: $id }, _set: $_set) {
       id
-      namaProduk
+      nama_produk
       stok
       harga
       gambar

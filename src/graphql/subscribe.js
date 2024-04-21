@@ -2,9 +2,9 @@ import { gql } from "@apollo/client";
 
 const subscribeDataProduk = gql`
   subscription MySubscription {
-    dikasir_Produk {
+    produk {
       id
-      namaProduk
+      nama_produk
       harga
       stok
       gambar
@@ -14,9 +14,9 @@ const subscribeDataProduk = gql`
 
 const subscribeDataTransaksi = gql`
   subscription MySubscription {
-    dikasir_Transaksi {
+    transaksi {
       id
-      kodeNota
+      kode_nota
       tanggal
       total
       bayar
@@ -29,7 +29,7 @@ const subscribeDataTransaksi = gql`
 
 const subscribeJumlahStok = gql`
   subscription stok {
-    dikasir_Produk_aggregate {
+    produk_aggregate {
       aggregate {
         sum {
           stok
@@ -41,7 +41,7 @@ const subscribeJumlahStok = gql`
 
 const subscribePengeluaran = gql`
   subscription pengeluaran {
-    dikasir_Produk_aggregate {
+    produk_aggregate {
       aggregate {
         sum {
           harga
@@ -53,7 +53,7 @@ const subscribePengeluaran = gql`
 
 const subscribePemasukan = gql`
   subscription MySubscription3 {
-    dikasir_Transaksi_aggregate {
+    transaksi_aggregate {
       aggregate {
         sum {
           total
@@ -65,7 +65,7 @@ const subscribePemasukan = gql`
 
 const subscribeJumlahProduk = gql`
   subscription MySubscription4 {
-    dikasir_Produk_aggregate {
+    produk_aggregate {
       aggregate {
         count(columns: id)
       }
@@ -75,7 +75,7 @@ const subscribeJumlahProduk = gql`
 
 const subscribeJumlahTransaksi = gql`
   subscription MySubscription5 {
-    dikasir_Transaksi_aggregate {
+    transaksi_aggregate {
       aggregate {
         count(columns: id)
       }

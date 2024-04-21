@@ -2,9 +2,9 @@ import { gql } from "@apollo/client";
 
 const getDataProduk = gql`
   query MyQuery {
-    dikasir_Produk {
+    produk {
       id
-      namaProduk
+      nama_produk
       stok
       harga
       gambar
@@ -14,11 +14,11 @@ const getDataProduk = gql`
 
 const getDataProdukById = gql`
   query MyQuery($id: uuid = "") @cached {
-    dikasir_Produk_by_pk(id: $id) {
+    produk_by_pk(id: $id) {
       id
       harga
       gambar
-      namaProduk
+      nama_produk
       stok
     }
   }
@@ -26,18 +26,18 @@ const getDataProdukById = gql`
 
 // const getDataNota = gql`
 //   query MyQuery($_eq: uuid = "", $_eq2: uuid = "") {
-//     dikasir_Transaksi(where: { kodeNota: { _eq: $_eq } }) {
+//     dikasir_Transaksi(where: { kode_nota: { _eq: $_eq } }) {
 //       bayar
 //       id
 //       kembali
-//       kodeNota
+//       kode_nota
 //       tanggal
 //       total
-//       rincian(where: { kodeNota: { _eq: $_eq2 } }) {
+//       rincian(where: { kode_nota: { _eq: $_eq2 } }) {
 //         stok
 //         quantity
-//         namaProduk
-//         kodeNota
+//         nama_produk
+//         kode_nota
 //         id_produk
 //         id
 //         harga
@@ -47,21 +47,21 @@ const getDataProdukById = gql`
 // `;
 
 const getDataNota = gql`
-  query MyQuery($_eq: uuid = "", $kodeNota: uuid_comparison_exp = { _eq: "" })
+  query MyQuery($_eq: uuid = "", $kode_nota: uuid_comparison_exp = { _eq: "" })
   @cached {
-    dikasir_Transaksi(
-      where: { kodeNota: { _eq: $_eq }, rincian: { kodeNota: $kodeNota } }
+    transaksi(
+      where: { kode_nota: { _eq: $_eq }, rincian: { kode_nota: $kode_nota } }
     ) {
       total
       tanggal
-      kodeNota
+      kode_nota
       kembali
       id
       bayar
       rincian {
         quantity
-        namaProduk
-        kodeNota
+        nama_produk
+        kode_nota
         id_produk
         id
         harga

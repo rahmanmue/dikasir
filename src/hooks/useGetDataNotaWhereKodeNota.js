@@ -5,7 +5,7 @@ export default function useGetDataNotaWhereKodeNota(kodeNota) {
   const { data, loading, error } = useQuery(getDataNota, {
     variables: {
       _eq: kodeNota,
-      kodeNota: {
+      kode_nota: {
         _eq: kodeNota,
       },
     },

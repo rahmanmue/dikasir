@@ -5,20 +5,20 @@ import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 import { createClient } from "graphql-ws";
 
 const httpLink = new HttpLink({
-  uri: "https://giving-hog-57.hasura.app/v1/graphql",
+  uri: "https://immense-goshawk-19.hasura.app/v1/graphql",
   headers: {
     "x-hasura-admin-secret":
-      "eK2kli0xkPqVivGG0eY1Rdt2dwKB0zTgikE8aei2gPFfEVDii4L1k01o0K4BDI2W",
+      "rMRjgrSeQdC64yYW7hGlpDKZ22W1A1s6jbEa3FKkJ3k5GiGU0sqePJNVHvxG0lNu",
   },
 });
 
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: "wss://giving-hog-57.hasura.app/v1/graphql",
+    url: "wss://immense-goshawk-19.hasura.app/v1/graphql",
     connectionParams: {
       headers: {
         "x-hasura-admin-secret":
-          "eK2kli0xkPqVivGG0eY1Rdt2dwKB0zTgikE8aei2gPFfEVDii4L1k01o0K4BDI2W",
+          "rMRjgrSeQdC64yYW7hGlpDKZ22W1A1s6jbEa3FKkJ3k5GiGU0sqePJNVHvxG0lNu",
       },
     },
   })
